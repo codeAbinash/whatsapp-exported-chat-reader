@@ -1,0 +1,108 @@
+:root{
+    --bg:#ece5dd;
+}
+body{
+    min-height: 100vh;
+    background-color: var(--bg);
+    /* overflow: scroll; */
+    /* background-size: 100%; */
+}
+.image{
+    background-image: url("wallpaper.png");
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.1;
+    background-size:370px;
+}
+.main{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: scroll;
+
+}
+.main header{
+    background-color: #075e54;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+.main header p{
+    font-size: 1.3em;
+    color: white;
+    letter-spacing: 1px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.main section{
+    height: auto;
+    width: 100%;
+    margin-top: 20px;
+    overflow: scroll;
+}
+.main section div{
+    width: 100%;
+    /* background-color: #ece5dd; */
+}
+.main section .notification{
+    background-color: rgb(197, 220, 247);
+    height: auto;
+    border-radius: 10px;
+    width: 80%;
+    /* margin-left: 10%; */
+    margin: 10px 10%;
+    font-size: 0.6em;
+    padding: 7px 10px;
+    text-align: center;
+}
+.main section .msg{
+    max-width: 100%;
+    /* background-color: yellow; */
+    width: auto;
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+.main section .left .msg{
+    justify-content: flex-start;
+}
+.main section .msg p{
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 0.85em;
+    letter-spacing: 0.3px;
+    max-width: 75%;
+    word-wrap: break-word;
+}
+.main section .msg span{
+    font-size: 0.6em;
+    margin: 0 5px;
+    background-color: #ffffff;
+    /* backdrop-filter: blur(15px); */
+    padding: 5px 8px;
+    border-radius: 7px;
+}
+.main section .left .msg p{
+    background-color: #fff;
+    margin-left: 15px;
+}
+.main section .right .msg{
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+.main section .right .msg p{
+    background-color: #dcf8c6;
+    margin-right: 15px;
+}
+.press{
+    transition: 0.1s linear transform;
+}
+.press:active{
+    transform: scale(0.97);
+}

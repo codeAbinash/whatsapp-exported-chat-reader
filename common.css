@@ -1,0 +1,19 @@
+@font-face {
+    font-family: G;
+    src: url("./fonts/ProductSans-Regular.ttf");
+}
+*{
+    padding: 0;
+    margin: 0;
+    font-family: G;
+    box-sizing: border-box;
+}
+.press{
+    transition: 0.1s linear transform;
+}
+.press:active{
+    transform: scale(0.95);
+}
+:root{
+    --color:#25d366;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Reader</title>
+    <link rel="stylesheet" href="common.css">
+<style>
+*{
+    text-align: center;
+}
+h1{
+    color: #25d366;
+    margin-top: 30px;
+    letter-spacing: 2px;
+}
+p{
+    font-weight: bold;
+    color: #777;
+    letter-spacing: 1px;
+}
+textarea{
+    width: 90%;
+    margin-left: 5%;
+    display: block;
+    margin-top: 50px;
+    height: 50vh;
+    border-radius: 10px;
+    border: 2px solid #777;
+    outline: none;
+    padding: 15px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: left;
+}
+textarea:focus{
+    border-color: #25d366;
+}
+button{
+    padding:15px 20px;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: #25d366;
+    border: none;
+    outline: none;
+    margin-top: 30px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    box-shadow: 0 5px 15px 5px #25d36655;
+}
+a{
+    display: block;
+    color: dodgerblue;
+    text-decoration: none;
+    margin-top: 20px;
+    font-weight: bold;
+}
+a:hover,a:active{
+    text-decoration: underline;
+}
+
+</style>
+</head>
+<body>
+    <h1>Chat Reader</h1>
+    <p>Paste Whatsapp Exported Chats Data</p>
+    <textarea id="data" cols="30" rows="10"></textarea>
+    <button class="press" onclick="next()">Read Chats</button>
+    <a href="https://facebook.com/Abinash.Dark.Rose">© Abinash - Dark Rose 2020</a>
+<script>
+function next(){
+    var raw = document.getElementById("data").value;
+    localStorage.raw = raw;
+    window.location.assign('contacts.html')
+}
+</script>
+</body>
+</html>

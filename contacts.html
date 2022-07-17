@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select You</title>
+    <link rel="stylesheet" href="common.css">
+<style>
+
+h1{
+    text-align: center;
+    margin-top: 30px;
+    color: var(--color);
+    letter-spacing: 1px;
+}
+.contacts{
+    width: 100%;
+    /* background-color: #ddd; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    flex-direction: column;
+}
+.contact{
+    width: 90%;
+    /* background-color: dodgerblue; */
+    font-weight: bold;
+    font-size: 1.3em;
+    padding: 20px;
+    box-shadow: -1px -1px 10px 0 #ddd;
+    border-radius: 10px;
+    margin: 10px;
+    letter-spacing: 1.5px;
+}
+</style>
+</head>
+<body>
+    <h1>Select which is you</h1>
+    
+    
+    <div class="contacts">
+    </div>
+<script>
+class Message{
+    constructor(line){
+        let nameFirstIndex = line.indexOf(' - ')
+        let messageFirstIndex = line.indexOf(': ')
+        this.date = line.substring(0,nameFirstIndex);
+        this.author = line.substring(nameFirstIndex+3,messageFirstIndex)
+        this.message = line.substring(messageFirstIndex+2)
+
+        if(line.substring(nameFirstIndex).indexOf(":")<0){
+            this.author = "N"
+            this.message = line.substring(nameFirstIndex+3)
+        }
+    }
+}
+
+var raw = localStorage.raw;
+var contactsArr = [];
+raw = raw.split('\n');
+
+for(let line of raw){
+    let l = new Message(line);
+    if(contactsArr.length==0 && l.author!='N')
+        contactsArr.push(l.author)
+    else if(l.author!='N'){
+        var found = false;
+        for(c of contactsArr)
+            if(c===l.author){
+                found = true;
+                break;
+            }
+        if(!found)
+            contactsArr.push(l.author)
+    }
+}
+// console.log(contactsArr);
+localStorage.contacts = JSON.stringify(contactsArr);
+
+
+let contactsDom = document.querySelector(".contacts");
+for(contact of contactsArr){
+    contactsDom.innerHTML+= `
+        <div class="contact press">
+                <p class="name" onclick="setSelf(this.innerText)">${contact}</p>
+        </div>`;
+}
+
+
+//Click Event
+let contactDom = document.querySelectorAll('.contacts .contact');
+
+let setSelf = (val)=>{
+    localStorage.self = val;
+    window.location.replace('chats.html');
+}
+
+
+</script>
+</body>
+</html>
